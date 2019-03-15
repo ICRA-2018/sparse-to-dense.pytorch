@@ -1,0 +1,25 @@
+name: sparse-to-dense-pytorch
+
+base:
+  ubuntu: 16.04
+  cuda: 8.0-devel
+  cudnn: 5-devel
+  opengl: runtime
+
+apt:
+  - libhdf5-serial-dev 
+  - hdf5-tools
+  - libglib2.0-0
+  - libsm6 libxrender1 libfontconfig1
+  - python3-tk
+
+pip3:
+  - h5py matplotlib imageio scikit-image opencv-python
+  - https://download.pytorch.org/whl/cu80/torch-0.4.0-cp35-cp35m-linux_x86_64.whl
+  - torchvision
+
+
+volume:
+  - host_path: /media/usuario/DATA
+  - container_path: /DATA
+  - options: rw
